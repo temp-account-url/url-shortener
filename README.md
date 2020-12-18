@@ -1,4 +1,17 @@
-# STORD URL Shortener Exercise
+# URL Shortener 
+
+
+## Available Scripts
+
+- `clean` - remove coverage data, Jest cache and transpiled files,
+- `build` - transpile TypeScript to ES6,
+- `build:watch` - interactive watch mode to automatically transpile source files,
+- `lint` - lint source files and tests,
+- `test` - run tests,
+- `test:watch` - interactive watch mode to automatically re-run tests
+
+
+# ---
 The goal of this exercise is to create a URL shortener web application in the same vein as [bitly](https://bitly.com/), [TinyURL](https://tinyurl.com/), or the now defunct [Google URL Shortener](https://goo.gl/). It is intentionally open-ended and you are welcome to implement your solution using the language and tech stack of your choice, but the core functionality of the application should be expressed through your own original code. This is your opportunity to show off your design and development strengths to our engineering team.
 
 ## Application Requirements
