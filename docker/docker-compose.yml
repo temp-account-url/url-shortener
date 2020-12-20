@@ -18,7 +18,13 @@ services:
         build:
             context: node
 
-        entrypoint: ["/var/tool/wait-for-it.sh", "db:3306", "--", "yarn", "run"]
+        entrypoint: [
+                "/var/tool/wait-for-it.sh",
+                "db:3306",
+                "--",
+                "yarn",
+                "run"
+        ]
         command: ["dev"]
 
         depends_on:

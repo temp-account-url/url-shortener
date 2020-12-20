@@ -1,6 +1,5 @@
 import { Express, Request, Response } from "express";
 import { Logger } from "../../common/Logger";
-import { errors } from "../../app/ErrorMessages";
 import PersistenceLayer from "../../app/PersistenceLayer";
 
 /**
