@@ -1,0 +1,44 @@
+.URLItem {
+    border: white solid 1px;
+    margin-top: 10px;
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 13px;
+}
+
+.URLItem-url-short {
+    font-size: 16px;
+    font-weight: bold;
+    color: black;
+    padding: 10px;
+    background-color: rgba(255, 255, 255, 0.7);
+    border-radius: 5px 5px 0 0;
+}
+
+.URLItem-url-short div {
+    float: right;
+    cursor: pointer;
+    width: 70px;
+}
+
+.URLItem-url-short div:hover {
+    color: darkgreen;
+}
+
+.URLItem-url-long {
+    margin-top: 10px;
+}
+
+.URLItem-url-long div:nth-child(1) {
+    display: inline-block;
+    vertical-align: top;
+    width: 100px;
+}
+
+.URLItem-url-long div:nth-child(2) {
+    display: inline-block;
+
+    line-break: anywhere;
+    width: 400px;
+    text-align: left;
+}

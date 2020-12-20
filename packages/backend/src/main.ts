@@ -1,32 +1,26 @@
+/* istanbul ignore file */
 /**
- * Some predefined delays (in milliseconds).
+ * Coverage is disabled because this file/class is not designated for tests
  */
-export enum Delays {
-  Short = 500,
-  Medium = 2000,
-  Long = 5000,
-}
+import { Logger, LogLevel } from "./common/Logger";
+import { runServer } from "./server/server";
+import PersistenceLayer from "./app/PersistenceLayer";
+import MysqlDriver from "./app/StorageDrivers/MysqlDriver";
 
-/**
- * Returns a Promise<string> that resolves after given time.
- *
- * @param {string} name - A name.
- * @param {number=} [delay=Delays.Medium] - Number of milliseconds to delay resolution of the Promise.
- * @returns {Promise<string>}
- */
-function delayedHello(
-  name: string,
-  delay: number = Delays.Medium,
-): Promise<string> {
-  return new Promise((resolve: (value?: string) => void) =>
-    setTimeout(() => resolve(`Hello, ${name}`), delay),
-  );
-}
+const logger = new Logger();
 
-// Below are examples of using ESLint errors suppression
-// Here it is suppressing missing return type definitions for greeter function
+logger.logLevel = LogLevel.debug;
+logger.debug("Starting backend package");
 
-// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
-export async function greeter(name: string) {
-  return await delayedHello(name, Delays.Long);
-}
+const driver = new MysqlDriver(logger);
+
+driver
+    .init()
+    .then(() => {
+        const persistenceLayer = new PersistenceLayer(driver);
+        logger.debug("Connected to persistence layer");
+        runServer(persistenceLayer, logger, 8080);
+    })
+    .catch((ex) => {
+        logger.critical("Persistence layer error", { msg: ex.toString() });
+    });

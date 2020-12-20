@@ -1,0 +1,39 @@
+.ShortenerPanel textarea {
+    width: 700px;
+    height: 70px;
+    wordbreak: break-all;
+    padding: 10px;
+    fontsize: 15;
+}
+
+.ShortenerPanel-title {
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.ShortenerPanel-loading {
+    position: absolute;
+    top: 0;
+    right: 0;
+    font-size: 20px;
+    background-color: red;
+    padding: 10px;
+    transition: opacity 0.2s;
+    opacity: 0;
+    border-radius: 0 0 0 5px;
+}
+
+.ShortenerPanel-loading-on {
+    opacity: 1;
+}
+
+.ShortenerPanel-trigger-button {
+    font-size: 20px;
+    padding: 10px;
+}
+
+.ShortenerPanel-error {
+    height: 35px;
+    font-size: 20px;
+    padding-top: 10px;
+}
