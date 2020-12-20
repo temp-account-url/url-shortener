@@ -1,7 +1,9 @@
 version: "3"
 services:
     db:
-        image: mysql:5.7
+        build:
+            context: mysql
+
 
         env_file:
             - conf.env
