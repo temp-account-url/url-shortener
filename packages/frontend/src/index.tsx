@@ -1,3 +1,8 @@
+/* istanbul ignore file */
+/**
+ * Coverage is disabled because this file/class is not designated for tests
+ */
+
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
