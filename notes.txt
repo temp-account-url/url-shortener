@@ -1,0 +1,3 @@
+- phpmyadmin is available at http://localhost:8081/
+  user & pass are stored in  /docker/conf.env
+
