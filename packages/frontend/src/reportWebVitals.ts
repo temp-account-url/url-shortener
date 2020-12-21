@@ -1,3 +1,7 @@
+/* istanbul ignore file */
+/**
+ * Coverage is disabled because this file/class is not designated for tests
+ */
 import { ReportHandler } from 'web-vitals';
 
 const reportWebVitals = (onPerfEntry?: ReportHandler) => {
