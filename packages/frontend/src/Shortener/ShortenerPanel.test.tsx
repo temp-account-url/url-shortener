@@ -5,6 +5,9 @@ import { rest } from "msw";
 import { setupServer } from "msw/node";
 import userEvent from "@testing-library/user-event";
 
+/**
+ * Mock for api request
+ */
 const server = setupServer(
     rest.post("http://localhost:8080", (req, res, ctx) => {
         let response: any = {
@@ -24,16 +27,13 @@ beforeAll(() => server.listen());
 afterEach(() => server.resetHandlers());
 afterAll(() => server.close());
 
-test("renders learn react link", async () => {
+test("Test overall error", async () => {
+    //just general render test
     render(<ShortenerPanel />);
     const titleElement = screen.getByText("STORD URL Shortener");
     expect(titleElement).toBeInTheDocument();
 
     const button = screen.getByText("Make it short");
-    //console.log(button);
-
-    expect(button).toBeInTheDocument();
-
     userEvent.click(button);
 
     // testing if loading is turning on
@@ -54,6 +54,7 @@ test("renders learn react link", async () => {
     fireEvent.change(await textarea, { target: { value: "http://ms.com" } });
     userEvent.click(button);
 
+    //expect to have one result on liet
     await waitFor(() => {
         expect(errorText).toBeEmptyDOMElement();
         expect(screen.getByTestId("list-container").childNodes.length).toBe(1);
@@ -62,10 +63,11 @@ test("renders learn react link", async () => {
     //again the same address
     userEvent.click(button);
     await waitFor(() => {
+        //expect loading indicator to hide
         expect(screen.getByText("Loading ...")).not.toHaveClass(
             "ShortenerPanel-loading-on"
         );
+        //expect list have only one element
         expect(screen.getByTestId("list-container").childNodes.length).toBe(1);
-        console.log("tutaj");
     });
 });

@@ -14,8 +14,9 @@ export const UrlItem = ({ item }: { item: ITranslatedElement }) => {
         item.slug;
 
     const copy = (text: string) => {
-        navigator.clipboard.writeText(text).then(
-            () => {
+        navigator.clipboard
+            .writeText(text)
+            .then(() => {
                 if (timeout.current !== -1) {
                     clearTimeout(timeout.current);
                 }
@@ -23,17 +24,16 @@ export const UrlItem = ({ item }: { item: ITranslatedElement }) => {
                 timeout.current = setTimeout(() => {
                     setCopied(false);
                 }, 2000);
-            },
-            (err) => {
+            })
+            .catch((err) => {
                 alert("Could not copy text");
-            }
-        );
+            });
     };
 
     return (
         <div className={"URLItem " + (copied ? "URLItem-copied" : "")}>
             <div className={"URLItem-url-short"}>
-                {link}
+                <span data-testid={"link"}>{link}</span>
                 <div onClick={() => copy(link)}>
                     {copied ? "U got it:)" : "copy"}
                 </div>

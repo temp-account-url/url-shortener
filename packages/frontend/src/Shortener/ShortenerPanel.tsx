@@ -55,6 +55,7 @@ export const ShortenerPanel = () => {
                 <textarea
                     value={currUrl}
                     onChange={(e) => setCurrUrl(e.target.value)}
+                    placeholder={"Paster your url here"}
                 />
             </div>
             <div>
@@ -69,7 +70,9 @@ export const ShortenerPanel = () => {
                     {currError !== "" && currError}
                 </div>
             </div>
-            <URLList translated={translatedList} />
+            <div data-testid={"list-container"}>
+                <URLList translated={translatedList} />
+            </div>
         </div>
     );
 };
