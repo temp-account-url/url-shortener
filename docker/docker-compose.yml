@@ -4,11 +4,9 @@ services:
         build:
             context: mysql
 
-
         env_file:
             - conf.env
-        volumes:
-            - ./mysql/conf:/etc/mysql/conf.d
+
         networks:
             - app-network
 
@@ -17,6 +15,7 @@ services:
     server:
         build:
             context: node
+        image: kmera_task_shortener
 
         entrypoint: [
                 "/var/tool/wait-for-it.sh",
