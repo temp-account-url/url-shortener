@@ -39,6 +39,7 @@ export const ShortenerPanel = () => {
             })
             .catch((ex) => {
                 setCurrError("Error with connection to service");
+                setLoading(false);
             });
     };
 
@@ -59,6 +60,12 @@ export const ShortenerPanel = () => {
                     value={currUrl}
                     onChange={(e) => setCurrUrl(e.target.value)}
                     placeholder={"Paster your url here"}
+                    autoFocus={true}
+                    onKeyPress={(e) => {
+                        if (e.key === "Enter") {
+                            makeItShorter();
+                        }
+                    }}
                 />
             </div>
             <div>
