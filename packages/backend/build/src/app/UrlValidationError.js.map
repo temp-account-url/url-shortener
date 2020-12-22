@@ -1,1 +1,0 @@
-{"version":3,"file":"UrlValidationError.js","sourceRoot":"","sources":["../../../src/app/UrlValidationError.ts"],"names":[],"mappings":";;;AAEA,MAAa,kBAAmB,SAAQ,KAAK;IACzC,YAAoB,OAAsB;QACtC,KAAK,CAAC,OAAO,CAAC,OAAO,CAAC,CAAC;QADP,YAAO,GAAP,OAAO,CAAe;IAE1C,CAAC;IACD,IAAI,MAAM;QACN,OAAO,IAAI,CAAC,OAAO,CAAC;IACxB,CAAC;CACJ;AAPD,gDAOC"}
