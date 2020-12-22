@@ -50,14 +50,13 @@ test("renders learn react link", async () => {
 
     //testing clear timeout if one is going one
     copyButton.click();
-    jest.runAllTimers();
-    await waitFor(
-        () => {
-            const copyButton = screen.getByText("copy");
-            expect(copyButton).toBeInTheDocument();
-        },
-        { timeout: 500 }
-    );
+    act(() => {
+        jest.advanceTimersByTime(2000);
+    });
+    await waitFor(() => {
+        const copyButton = screen.getByText("copy");
+        expect(copyButton).toBeInTheDocument();
+    });
 
     //expect(setTimeout).toHaveBeenCalledTimes(1);
 });

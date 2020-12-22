@@ -36,6 +36,9 @@ export const ShortenerPanel = () => {
                         ),
                     ]);
                 }
+            })
+            .catch((ex) => {
+                setCurrError("Error with connection to service");
             });
     };
 
