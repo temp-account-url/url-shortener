@@ -10,6 +10,8 @@ APP_IMAGE_NAME:=kmera_task_shortener
 # anything else that needs to happen before your server is started
 # for the first time
 setup:
+    # to be sure that we dont have old images in cache ( sometimes it's  a cause of MySQL auth error)
+	(cd ./docker && docker-compose rm -v -f)
 	(cd ./docker && docker-compose build)
 	# I know it's not pretty,
 	# usually I use  docker multistage build to download sources from repo and build it

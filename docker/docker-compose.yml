@@ -1,6 +1,7 @@
 version: "3"
 services:
     db:
+        container_name: kmera_task_shortener_db
         build:
             context: mysql
 
@@ -13,6 +14,7 @@ services:
         command: mysqld --character-set-server=utf8 --collation-server=utf8_general_ci
 
     server:
+        container_name: kmera_task_shortener_server
         build:
             context: node
         image: kmera_task_shortener
@@ -45,6 +47,7 @@ services:
             - app-network
 
     phpmyadmin:
+        container_name: kmera_task_shortener_phpmyadmin
         image: phpmyadmin/phpmyadmin
         env_file:
             - conf.env
